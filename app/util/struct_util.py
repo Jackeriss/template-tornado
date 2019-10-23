@@ -7,5 +7,5 @@ class StrEnum(str, Enum):
     def __new__(cls, *args):
         for arg in args:
             if not isinstance(arg, str):
-                raise TypeError("Not str: {}".format(arg))
+                raise TypeError(f"Not str: {arg}")
         return super(StrEnum, cls).__new__(cls, *args)
