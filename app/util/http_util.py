@@ -37,8 +37,8 @@ class HTTPClient:
         *,
         method="GET",
         format=None,
-        timeout=config.http["timeout"],
-        retry=config.http["retry"],
+        timeout=5,
+        retry=2,
         **kwargs,
     ):
         session = await self.get_session()

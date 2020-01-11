@@ -1,3 +1,4 @@
+import os
 import logging
 import sys
 import asyncio
@@ -52,8 +53,6 @@ def main():
         import uvloop
 
         asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
-
-    fork_processes(0 if config.env != "dev" else 1)
 
     AsyncIOMainLoop().install()
     loop = asyncio.get_event_loop()

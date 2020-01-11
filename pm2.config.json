@@ -1,0 +1,20 @@
+{
+    "apps": [{
+        "name": "template-tornado",
+        "script": "app/main.py",
+        "interpreter": "pipenv",
+        "interpreter_args": "run python3",
+        "exec_mode": "fork_mode",
+        "instances": "2",
+        "wait_ready": true,
+        "autorestart": true,
+        "log_file": "/app/log/template-tornado/template-tornado.log",
+        "time": true,
+        "merge_logs": true,
+        "increment_var": "PORT",
+        "env": {
+            "ENV": "prod",
+            "PORT": 8000
+        }
+    }]
+}

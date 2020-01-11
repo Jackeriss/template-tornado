@@ -1,4 +1,3 @@
-import argparse
 import copy
 import os
 
@@ -7,14 +6,8 @@ import yaml
 from app.config import constant
 
 
-parser = argparse.ArgumentParser()
-parser.add_argument("--name", type=str)
-parser.add_argument("--env", type=str, default="dev")
-parser.add_argument("--port", type=int)
-args = parser.parse_args()
-env = args.env
-port = args.port
-
+ENV = os.environ.get("ENV")
+PORT = os.environ.get("PORT")
 
 def _read_config(_env):
     with open(
@@ -28,7 +21,7 @@ def _read_config(_env):
 if os.path.exists(os.path.join(constant.BASE_DIR, "config", "config.local.yaml")):
     content = _read_config("local")
 else:
-    content = _read_config(env)
+    content = _read_config(ENV)
 
 
 class Config:
@@ -36,7 +29,7 @@ class Config:
 
     @property
     def env(self):
-        return env
+        return ENV
 
     @property
     def base_dir(self):
@@ -56,8 +49,8 @@ class Config:
 
     @property
     def server(self):
-        if port:
-            self._config["server"]["port"] = port
+        if PORT:
+            self._config["server"]["port"] = PORT
         return self._config["server"]
 
     @property
@@ -67,12 +60,6 @@ class Config:
     @property
     def redis(self):
         conf = copy.deepcopy(self._config["redis"])
-        address = (conf.pop("host", "localhost"), conf.pop("port", 6379))
-        return address, conf
-
-    @property
-    def pg(self):
-        conf = copy.deepcopy(self._config["pg"])
         address = (conf.pop("host", "localhost"), conf.pop("port", 6379))
         return address, conf
 

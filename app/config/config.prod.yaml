@@ -6,10 +6,6 @@ server:
   allow_origin: "*"
   thread_worker: 60
 
-http:
-  timeout: 5
-  retry: 2
-
 redis:
   host: "127.0.0.1"
   port: 6379
@@ -19,13 +15,3 @@ redis:
   max_size: 20
   timeout: 60
   encoding: "utf-8"
-
-pg:
-  host: ""
-  user: ""
-  password: ""
-  port: 5432
-  database: ""
-  minsize: 1
-  maxsize: 20
-  command_timeout: 60
