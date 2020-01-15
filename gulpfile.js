@@ -1,11 +1,6 @@
 const gulp = require('gulp');
-const run = require("gulp-run")
+const cp = require("child_process")
 
-function start() {
-  return run('/usr/local/bin/pm2 startOrGracefulReload pm2.json').exec()
-}
-
-exports.start = start
-exports.deploy = gulp.series(
-  start
-)
+gulp.task('deploy', function() {
+  return cp.exec('/usr/local/bin/pm2 startOrReload pm2.json')
+})

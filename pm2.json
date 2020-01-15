@@ -4,7 +4,7 @@
         "script": "/bin/bash",
         "args": ["-c", "pipenv run serve"],
         "exec_mode": "fork_mode",
-        "instances": "2",
+        "instances": "1",
         "autorestart": false,
         "log_file": "/app/log/template-tornado/template-tornado.log",
         "time": true,
