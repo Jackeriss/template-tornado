@@ -1,13 +1,11 @@
 {
     "apps": [{
         "name": "template-tornado",
-        "script": "app/main.py",
-        "interpreter": "pipenv",
-        "interpreter_args": "run python3",
+        "script": "/bin/bash",
+        "args": ["-c", "pipenv run serve"],
         "exec_mode": "fork_mode",
         "instances": "2",
-        "wait_ready": true,
-        "autorestart": true,
+        "autorestart": false,
         "log_file": "/app/log/template-tornado/template-tornado.log",
         "time": true,
         "merge_logs": true,

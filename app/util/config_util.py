@@ -3,15 +3,16 @@ import os
 
 import yaml
 
-from app.config import constant
+from app.constant import constant
 
 
-ENV = os.environ.get("ENV")
+ENV = os.environ.get("ENV", "dev")
 PORT = os.environ.get("PORT")
 
-def _read_config(_env):
+
+def _read_config(env):
     with open(
-        os.path.join(constant.BASE_DIR, "config", f"config.{_env}.yaml"),
+        os.path.join(constant.BASE_DIR, "config", f"config.{env}.yaml"),
         "r",
         encoding="utf-8",
     ) as stream:
@@ -54,14 +55,14 @@ class Config:
         return self._config["server"]
 
     @property
-    def http(self):
-        return self._config["http"]
-
-    @property
     def redis(self):
         conf = copy.deepcopy(self._config["redis"])
         address = (conf.pop("host", "localhost"), conf.pop("port", 6379))
         return address, conf
+    
+    @property
+    def solr(self):
+        return self._config["solr"]
 
 
 config = Config()

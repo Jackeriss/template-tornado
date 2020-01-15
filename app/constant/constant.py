@@ -1,4 +1,3 @@
-"""全局静态变量"""
 import os
 from enum import IntEnum
 

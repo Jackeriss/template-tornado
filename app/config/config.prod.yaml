@@ -1,6 +1,6 @@
 ---
 server:
-  debug: false
+  debug: true
   host: 0.0.0.0
   port: 8000
   allow_origin: "*"
@@ -9,9 +9,5 @@ server:
 redis:
   host: "127.0.0.1"
   port: 6379
-  db: 0
+  db: 1
   password:
-  min_size: 1
-  max_size: 20
-  timeout: 60
-  encoding: "utf-8"

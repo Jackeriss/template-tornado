@@ -13,12 +13,10 @@ black = "*"
 tornado = "*"
 schema = "*"
 uvloop = "*"
-aiotask-context = "*"
 pytz = "*"
 PyYAML = "*"
-orjson = "*"
 aiohttp = "*"
-# aioredis = "*"
+aioredis = "*"
 
 [requires]
 python_version = "3.8.1"

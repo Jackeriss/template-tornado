@@ -11,7 +11,3 @@ redis:
   port: 6379
   db: 0
   password:
-  min_size: 1
-  max_size: 20
-  timeout: 60
-  encoding: "utf-8"

@@ -28,7 +28,7 @@ else:
 BEFORE_HOOKS = [before_hook.wrap_handler]
 
 AFTER_HOOKS = [
-    # after_hook.init_redis_pool
+    after_hook.init_redis_pool
 ]
 
 DELAY_TASKS = []
