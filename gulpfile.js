@@ -5,6 +5,4 @@ gulp.task('start', function () {
   return cp.exec('/usr/local/bin/pm2 startOrReload pm2.json')
 })
 
-gulp.task('default', function () {
-  gulp.start('start')
-})
+exports.default = gulp.series('start')
