@@ -5,4 +5,4 @@ function start() {
   return run('/usr/local/bin/pm2 startOrReload pm2.json').exec()
 }
 
-exports.default = gulp.series(install, start)
+exports.default = gulp.series(start)
